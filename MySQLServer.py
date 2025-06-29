@@ -1,12 +1,16 @@
+import os
 import mysql.connector
 from mysql.connector import Error
 
 try:
+    # Get MySQL password from environment variable named MYSQL_PASSWORD
+    mysql_password = os.getenv('MYSQL_PASSWORD')
+
     # Connect to MySQL server (no database specified yet)
     connection = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='azzmouriF444187'  # <- replace with your actual MySQL password
+        password=mysql_password
     )
 
     if connection.is_connected():
